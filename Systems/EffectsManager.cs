@@ -61,38 +61,42 @@ namespace StompyBlondie.Systems
         }
     }
 
-    /*
+    /**
      * Used to fire off and keep track of effects, effects are typically particle effects
      *
      * Should be used in conjunction with a static class containing resource paths to each effect as an instantiable
      * object.
-     * Example usage:
+     *
+     * Example usage
+     * -------------
+     *
+     * ```{.cs}
+     *  public static class EffectsTypes
+     *  {
+     *     public static string LOOP_RAIN = "looping/Rain";
+     *     public static string ONESHOT_EXPLOSION = "oneshot/Explosion";
+     *  }
+     *
+     *  ...
+     *
+     *  // Initialising the manager
+     *  var effectsManager = EffectsManager.CreateEffectsManager(
+     *       typeof(EffectsType).GetFields(),
+     *       "resources/path/to/prefabs/"
+     *  );
+     *
+     *  // Spawning effects
+     *  effectsManager.CreateEffect(EffectsTypes.ONESHOT_EXPLOSION, vector3SpawnLocation);
+     *  effectsManager.CreateEffect(EffectsTypes.LOOP_RAIN, vector3SpawnLocation);
 
-       public static class EffectsTypes
-       {
-          public static string LOOP_RAIN = "looping/Rain";
-          public static string ONESHOT_EXPLOSION = "oneshot/Explosion";
-       }
+     *  // Effects that follow a transform during it's lifespan
+     *  effectsManager.CreateEffect(EffectsTypes.ONESHOT_EXPLOSION, transformToFollow);
 
-       ...
-
-       // Initialising the manager
-       var effectsManager = EffectsManager.CreateEffectsManager(
-            typeof(EffectsType).GetFields(),
-            "resources/path/to/prefabs/"
-       );
-
-       // Spawning effects
-       effectsManager.CreateEffect(EffectsTypes.ONESHOT_EXPLOSION, vector3SpawnLocation);
-       effectsManager.CreateEffect(EffectsTypes.LOOP_RAIN, vector3SpawnLocation);
-
-       // Effects that follow a transform during it's lifespan
-       effectsManager.CreateEffect(EffectsTypes.ONESHOT_EXPLOSION, transformToFollow);
-
-       // Manually removing effects
-       var rain = CreateEffect(EffectsTypes.LOOP_RAIN, vector3SpawnLocation);
-       ....
-       effectsManager.RemoveEffect(rain);
+     *  // Manually removing effects
+     *  var rain = CreateEffect(EffectsTypes.LOOP_RAIN, vector3SpawnLocation);
+     *  ....
+     *  effectsManager.RemoveEffect(rain);
+     * ```
      */
     public class EffectsManager: MonoBehaviour
     {

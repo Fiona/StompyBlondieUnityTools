@@ -21,17 +21,17 @@ namespace StompyBlondie.Math
         }
     }
 
-    /*
+    /**
      * Generic AStar implementation
      * Designed to be subclassed to provide specific node expansion and costing.
      *
-     * CostNode(AStarNode node) and List<AStarNode> Expand(AStarNode node must be overridden.
+     * `CostNode()` and `Expand()` must be overridden.
      *
-     * To perform searches the Search() method is passed a start node and an end node. It returns
+     * To perform searches the `Search()` method is passed a start node and an end node. It returns
      * null if a path is impossible otherwise a list of nodes.
      * Node values can be any object.
      *
-     * You can optionally override Search(Object start, Object end) and IsEndNode(AStarNode node) but
+     * You can optionally override `Search(Object start, Object end)` and `IsEndNode(AStarNode node)` but
      * the default implementations are functional.
      */
     public class AStar
@@ -42,13 +42,13 @@ namespace StompyBlondie.Math
         private Dictionary<Object, AStarNode> closedNodes;
         private List<AStarNode> foundPath;
 
-        /*
+        /**
          * Perform a search from the first node value to the second node value.
          * Values can be any object.
          *
-         * @param System.Object start: The node to start the search at.
-         * @param System.Object end: The desired end node to path to.
-         * @return List<AStarNode>: A List of nodes representing the nodes that should be traversed to get to the end.
+         * @param start The node to start the search at.
+         * @param end The desired end node to path to.
+         * @return A List of nodes representing the nodes that should be traversed to get to the end.
          *   Returns null if the path is impossible.
          */
         public virtual List<AStarNode> Search(Object start, Object end)
@@ -64,12 +64,12 @@ namespace StompyBlondie.Math
             return foundPath.Count > 0 ? foundPath : null;
         }
 
-        /*
+        /**
          Should be overidden by subclasses to return the cost of a node, indicating to the algorithm how preferable the
          choice of move is.
 
-         @param AStarNode node: The node to cost up.
-         @return (float cost, float pathCost)?: A tuple containing cost and pathCost values respectively,
+         @param node The node to cost up.
+         @return A tuple containing cost and pathCost values respectively,
            or null if the node should not be considered at all (an impossible move).
            pathCost is the total cost to move along the path from the start to this node, and cost is pathCost plus an
            estimate of the distance to the goal. The pathCost can be found by adding the movement cost of this
@@ -80,12 +80,12 @@ namespace StompyBlondie.Math
             return (cost: 0f, pathCost: node.previous?.pathCost ?? 0f);
         }
 
-        /*
+        /**
          Should be overidden by subclasses to return a List of nodes branching from the given node (whether already
          visited or not).
 
-         @param AStarNode node: The node to branch from.
-         @return List<AStarNode>: All nodes that can be traversed from this node, with their members set appropriately.
+         @param node The node to branch from.
+         @return All nodes that can be traversed from this node, with their members set appropriately.
            The cost method can be used to calculate each node's pathCost and cost values.
            Note that cost will return null if a node represents an impossible move which should not be included in the
            branching nodes.
