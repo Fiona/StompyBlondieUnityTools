@@ -1,0 +1,46 @@
+\hypertarget{class_stompy_blondie_1_1_a_i_1_1_navigation_map}{}\section{Stompy\+Blondie.\+A\+I.\+Navigation\+Map Class Reference}
+\label{class_stompy_blondie_1_1_a_i_1_1_navigation_map}\index{Stompy\+Blondie.\+A\+I.\+Navigation\+Map@{Stompy\+Blondie.\+A\+I.\+Navigation\+Map}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_stompy_blondie_1_1_a_i_1_1_navigation_map_a62f3061cd8d46288f7fee1e6c80a1b9b}\label{class_stompy_blondie_1_1_a_i_1_1_navigation_map_a62f3061cd8d46288f7fee1e6c80a1b9b}} 
+{\bfseries Navigation\+Map} (\mbox{\hyperlink{class_stompy_blondie_1_1_a_i_1_1_navigation_map}{Navigation\+Map}} clone\+From)
+\item 
+\mbox{\Hypertarget{class_stompy_blondie_1_1_a_i_1_1_navigation_map_a5922bcfcb17953ec21c868b260b41953}\label{class_stompy_blondie_1_1_a_i_1_1_navigation_map_a5922bcfcb17953ec21c868b260b41953}} 
+void {\bfseries Reset} ()
+\item 
+\mbox{\Hypertarget{class_stompy_blondie_1_1_a_i_1_1_navigation_map_a10c2593b8a9fbaf0ac01095f40c12dc8}\label{class_stompy_blondie_1_1_a_i_1_1_navigation_map_a10c2593b8a9fbaf0ac01095f40c12dc8}} 
+bool {\bfseries Has\+Point} (\mbox{\hyperlink{struct_stompy_blondie_1_1_common_1_1_types_1_1_pos}{Pos}} position)
+\item 
+\mbox{\Hypertarget{class_stompy_blondie_1_1_a_i_1_1_navigation_map_af6d4dcdcca40f142146538ed2fe7c21f}\label{class_stompy_blondie_1_1_a_i_1_1_navigation_map_af6d4dcdcca40f142146538ed2fe7c21f}} 
+bool {\bfseries Add\+Point} (\mbox{\hyperlink{struct_stompy_blondie_1_1_common_1_1_types_1_1_pos}{Pos}} position)
+\item 
+\mbox{\Hypertarget{class_stompy_blondie_1_1_a_i_1_1_navigation_map_a2658ca4206a19449243d4a16393ebb85}\label{class_stompy_blondie_1_1_a_i_1_1_navigation_map_a2658ca4206a19449243d4a16393ebb85}} 
+bool {\bfseries Add\+Point\+Link} (\mbox{\hyperlink{struct_stompy_blondie_1_1_common_1_1_types_1_1_pos}{Pos}} pointA, \mbox{\hyperlink{struct_stompy_blondie_1_1_common_1_1_types_1_1_pos}{Pos}} pointB, float cost\+Multiplier=1f)
+\item 
+\mbox{\Hypertarget{class_stompy_blondie_1_1_a_i_1_1_navigation_map_ae13b0ae98c3b2309b0349439bf58ed13}\label{class_stompy_blondie_1_1_a_i_1_1_navigation_map_ae13b0ae98c3b2309b0349439bf58ed13}} 
+void {\bfseries Remove\+Point} (\mbox{\hyperlink{struct_stompy_blondie_1_1_common_1_1_types_1_1_pos}{Pos}} position)
+\item 
+\mbox{\Hypertarget{class_stompy_blondie_1_1_a_i_1_1_navigation_map_aa49f9eb7f626fad4bbbb9ddd411fa41d}\label{class_stompy_blondie_1_1_a_i_1_1_navigation_map_aa49f9eb7f626fad4bbbb9ddd411fa41d}} 
+void {\bfseries Break\+Point\+Link} (\mbox{\hyperlink{struct_stompy_blondie_1_1_common_1_1_types_1_1_pos}{Pos}} pointA, \mbox{\hyperlink{struct_stompy_blondie_1_1_common_1_1_types_1_1_pos}{Pos}} pointB)
+\item 
+\mbox{\Hypertarget{class_stompy_blondie_1_1_a_i_1_1_navigation_map_a0ce1fac02a5a31b904baada6aff83bcd}\label{class_stompy_blondie_1_1_a_i_1_1_navigation_map_a0ce1fac02a5a31b904baada6aff83bcd}} 
+float {\bfseries Distance\+Between\+Points} (\mbox{\hyperlink{struct_stompy_blondie_1_1_common_1_1_types_1_1_pos}{Pos}} pointA, \mbox{\hyperlink{struct_stompy_blondie_1_1_common_1_1_types_1_1_pos}{Pos}} pointB)
+\item 
+\mbox{\Hypertarget{class_stompy_blondie_1_1_a_i_1_1_navigation_map_a059f94fa6e73419756517f761f2bb3f5}\label{class_stompy_blondie_1_1_a_i_1_1_navigation_map_a059f94fa6e73419756517f761f2bb3f5}} 
+bool {\bfseries Superimpose\+Navigation\+Map} (\mbox{\hyperlink{class_stompy_blondie_1_1_a_i_1_1_navigation_map}{Navigation\+Map}} nav\+Map, \mbox{\hyperlink{struct_stompy_blondie_1_1_common_1_1_types_1_1_pos}{Pos}} position, Eight\+Direction direction)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_stompy_blondie_1_1_a_i_1_1_navigation_map_af4f71225b8d491f23974e2b4cf2d18e9}\label{class_stompy_blondie_1_1_a_i_1_1_navigation_map_af4f71225b8d491f23974e2b4cf2d18e9}} 
+Dictionary$<$ \mbox{\hyperlink{struct_stompy_blondie_1_1_common_1_1_types_1_1_pos}{Pos}}, \mbox{\hyperlink{struct_stompy_blondie_1_1_a_i_1_1_navigation_point}{Navigation\+Point}} $>$ {\bfseries points} = new Dictionary$<$\mbox{\hyperlink{struct_stompy_blondie_1_1_common_1_1_types_1_1_pos}{Pos}}, \mbox{\hyperlink{struct_stompy_blondie_1_1_a_i_1_1_navigation_point}{Navigation\+Point}}$>$()
+\item 
+\mbox{\Hypertarget{class_stompy_blondie_1_1_a_i_1_1_navigation_map_a2db7ec95521970ba1e2eafbeaf3418fc}\label{class_stompy_blondie_1_1_a_i_1_1_navigation_map_a2db7ec95521970ba1e2eafbeaf3418fc}} 
+float {\bfseries minX}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+A\+I/Tilemap\+Navigation.\+cs\end{DoxyCompactItemize}
