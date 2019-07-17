@@ -4,7 +4,10 @@
  */
 using System;
 using System.ComponentModel;
+using System.Drawing;
 using System.Globalization;
+using StompyBlondie.Utils;
+using UnityEngine.Analytics;
 
 namespace StompyBlondie.Common.Types
 {
@@ -82,11 +85,23 @@ namespace StompyBlondie.Common.Types
         public readonly float Y;
         public readonly float Layer;
 
-        public Pos(float x, float y, float layer)
+        public Pos(float x = 0f, float y = 0f, float layer = 0f)
         {
             X = x;
             Y = y;
             Layer = layer;
+        }
+
+        public Pos RotatePosAround(EightDirection direction, Pos centerPoint)
+        {
+            double angleInRadians = DirectionHelper.DirectionToRadians(direction);
+            double cosTheta = System.Math.Cos(angleInRadians);
+            double sinTheta = System.Math.Sin(angleInRadians);
+            return new Pos(
+                (float)(cosTheta * (X - centerPoint.X) - sinTheta * (Y - centerPoint.Y) + centerPoint.X),
+                (float)(sinTheta * (X - centerPoint.X) + cosTheta * (Y - centerPoint.Y) + centerPoint.Y),
+                Layer
+            );
         }
 
         public override string ToString()
@@ -104,6 +119,16 @@ namespace StompyBlondie.Common.Types
         public static bool operator !=(Pos a, Pos b)
         {
             return !(a == b);
+        }
+
+        public static Pos operator +(Pos a, Pos b)
+        {
+            return new Pos(a.X + b.X, a.Y + b.Y, a.Layer);
+        }
+
+        public static Pos operator -(Pos a, Pos b)
+        {
+            return new Pos(a.X - b.X, a.Y - b.Y, a.Layer);
         }
 
         public override bool Equals(System.Object obj)

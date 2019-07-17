@@ -2,6 +2,7 @@ using UnityEngine;
 using StompyBlondie.Common.Types;
 using StompyBlondie.Extensions;
 
+
 namespace StompyBlondie.AI
 {
     /*
@@ -22,7 +23,6 @@ namespace StompyBlondie.AI
         {
             if(navigationMap == null)
                 return;
-#if ULTIDRAW
             UltiDraw.Begin();
 
             // Draw points
@@ -40,9 +40,6 @@ namespace StompyBlondie.AI
             }
 
             UltiDraw.End();
-#else
-            Debug.Log("Compile time directive ULTIDRAW is not set");
-#endif
         }
 
         private Vector3 CalcualateDrawPos(Pos virtualPos)

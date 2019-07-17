@@ -2,7 +2,6 @@
  * 2018 Stompy Blondie Games
  * Licensed under MIT. See accompanying LICENSE file for details.
  */
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json;
@@ -143,11 +142,28 @@ namespace StompyBlondie.AI
         /**
          * Adds a navigation map on top of this navigation map
          */
-        public bool SuperimposeNavigationMap(NavigationMap navMap, Pos position, EightDirection direction)
+        public void SuperimposeNavigationMap(NavigationMap navMap, Pos position, EightDirection direction, Pos rotateAround = new Pos())
         {
-            // TODO: Implement
-            // ....
-            return true;
+            position = position - rotateAround;
+            // Add points first
+            foreach(var navPoint in navMap.points.Keys)
+            {
+                var rotatedPoint = position - navPoint.RotatePosAround(direction, rotateAround);
+                AddPoint(rotatedPoint);
+            }
+
+            // Add links
+            foreach(var navPoint in navMap.points.Values)
+            {
+                var rotatedPointA = position - navPoint.position.RotatePosAround(direction, rotateAround);
+                foreach(var link in navPoint.links)
+                {
+                    var rotatedPointB = position - link.linkTo.RotatePosAround(direction, rotateAround);
+                    AddPointLink(rotatedPointA, rotatedPointB, link.costMultiplier);
+                }
+            }
+
+            // TODO: Add rotation
         }
     }
 

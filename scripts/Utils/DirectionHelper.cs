@@ -56,5 +56,21 @@ namespace StompyBlondie.Utils
         {
             return 180f + (45f * (int)dir);
         }
+
+        /**
+         * Returns the direction passed as radians.
+         */
+        public static float DirectionToRadians(EightDirection dir)
+        {
+            return (float)(DirectionToDegrees(dir) * (System.Math.PI / 180f));
+        }
+
+        /**
+         * Returns the direction passed as radians.
+         */
+        public static float DirectionToRadians(Direction dir)
+        {
+            return (float)(DirectionToDegrees(dir) * (System.Math.PI / 180f));
+        }
     }
 }
