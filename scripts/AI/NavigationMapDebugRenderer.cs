@@ -23,6 +23,7 @@ namespace StompyBlondie.AI
         {
             if(navigationMap == null)
                 return;
+            /*
             UltiDraw.Begin();
 
             // Draw points
@@ -40,6 +41,7 @@ namespace StompyBlondie.AI
             }
 
             UltiDraw.End();
+            */
         }
 
         private Vector3 CalcualateDrawPos(Pos virtualPos)

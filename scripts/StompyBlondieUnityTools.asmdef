@@ -1,9 +1,7 @@
 {
     "name": "StompyBlondieUnityTools",
-    "references": [
-        "UltiDraw"
-    ],
-    "optionalUnityReferences": [],
+    "references": [],
+    "optionalUnityReferences": ["UltiDraw"],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
